@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+
+<body>
+    
+<div class="wrapper">
+
+<style>
+    span.quest {font-weight: bold;}
+    label {margin-left: 15px;}
+    .nav {font-size: 17px;}
+</style>
+<div style="border: 2px solid rgb(145, 192, 155); padding: 10px; overflow:auto;">
+    <div style="display:flex; justify-content: space-between;">
+    </div>
+<script>
+
+var title = 'Тест по теме "Селекция"';
+
+var subtitle = "Этот тест позволяет оценить Ваши знания программы 10 класса по биологии.";
+
+var questions=[
+{
+	text: "Организмы, в геном которых встроены гены других видов, называют...",
+	answers: ["Гибридами",
+		  "Трансгенными",
+		  "Дискретными"],
+	correctAnswer: 1 
+},
+
+{
+	text: "Мул - типичный пример:",
+	answers: ["Гетерозиса",
+		  "Полиплодии",
+		  "Мутагенеза"],
+	correctAnswer: 0
+},
+
+{
+	text: "Клонирование - это...",
+	answers: ["Скрещивание форм, отличающихся друг от друга по двум парам альтернативных признаков.",
+		  "Появление естественным путем или получение нескольких генетически идентичных организмов путем бесполого размножения или партеногенеза.",
+		  "Ненаследственное изменение фенотипа, возникающее под влиянием факторов внешней среды в пределах нормы реакции генотипа."],
+	correctAnswer: 1
+},
+
+{
+	text: "Кому из ученых принадлежит следующий закон: При скрещивании двух гетерозиготных потомков первого поколения между собой во втором поколении наблюдается расщепление в определенном числовом соотношении... ",
+	answers: ["Д.И. Менделеев",
+		  "Х.А. Кребс",
+		  "Г.И. Мендель"],
+	correctAnswer: 2 
+},
+
+{
+	text: "Снижение эффекта гетерозиса в последующих поколениях обусловлено...",
+	answers: ["Проявлением доминантных мутаций",
+		  "Увеличением числа гетерозиготных особей",
+		  "Уменьшением числа гомозиготных особей",
+          "Проявлением рецессивных мутаций"
+        ],
+	correctAnswer: 3
+},
+
+];
+
+
+
+var yourAns = new Array;
+var score = 0;
+
+function Engine(question, answer) {yourAns[question]=answer;}
+
+function Score(){
+   var answerText = "Результаты:\n";
+   for(var i = 0; i < yourAns.length; ++i){
+	var num = i+1;
+	answerText=answerText+"\n    Вопрос №"+ num +"";
+	if(yourAns[i]!=questions[i].correctAnswer){
+	    answerText=answerText+"\n    Правильный ответ: " +
+		questions[i].answers[questions[i].correctAnswer] + "\n";
+	  }
+        else{
+	    answerText=answerText+": Верно! \n";
+	    ++score;
+	    }
+       }
+
+   answerText=answerText+"\nВсего правильных ответов: "+score+"\n";
+
+   alert(answerText);
+   yourAns = [];
+   score = 0;
+   clearForm("quiz");
+}
+function clearForm(name) {
+   var f = document.forms[name];
+   for(var i = 0; i < f.elements.length; ++i) {
+	if(f.elements[i].checked)
+		f.elements[i].checked = false;
+}
+}
+</script>
+<h2><script>document.write(title)</script></h2>
+<h3><script>document.write(subtitle)</script></h3>
+
+    <form name="quiz">
+    <ol>
+        <script>
+        for(var q=0; q<questions.length; ++q) {
+           var question = questions[q];
+           var idx = 1 + q;
+
+           document.writeln('<li><span class="quest">' + question.text + '</span><br>');
+           for(var i in question.answers) {
+            document.writeln('<label><input type=radio name="q' + idx + '" value="' + i +
+            '" onClick="Engine(' + q + ', this.value)"> ' + question.answers[i] + '</label><br>'); 
+        }
+            document.writeln('</li>');
+        }
+        </script>
+    </ol>
+        <br>
+        <input type="button" class="btn" onClick="Score()" value="Проверить результаты">
+    </form>
+    
+</div>
+
+</div> <!--wrapper-->
+
+<div class="points">
+<h4 class="disp">Разбалловка:
+    <ul class="spisok">
+        <li>5 баллов - 5</li><br>
+        <li>4 балла - 4</li><br>
+        <li>3 балла - 3</li><br>
+        <li>2 балла...по возможности 3 хотя-бы, ну:-)</li><br>
+    </ul>
+</h4>
+
+</div>
+
+</body>
+</html>

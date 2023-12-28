@@ -1,0 +1,47 @@
+
+*{
+box-sizing: border-box;
+}
+
+body {
+
+background-color: rgb(216, 255, 225);
+}
+
+.wrapper {
+color: rgb(71, 97, 68);
+background-color: rgb(187, 226, 187);
+display: inline-block;
+}
+
+.btn {
+border: 3px white solid;
+background-color: rgb(211, 245, 189);
+border-radius: 5px;
+color: green;
+padding: 5px;
+}
+
+.btn:hover {
+background-color: aliceblue;
+color: blueviolet;
+border: blueviolet 3px solid;
+}
+
+.btn:active {
+
+background-color: rgb(194, 136, 194);
+;
+}
+
+.points {
+background-color: rgb(218, 181, 155);
+color: rgb(97, 69, 56);
+display: inline-block;
+padding-left: 20px;
+border-radius: 10px;
+}
+
+.spisok {
+padding-right: 30px;
+}
